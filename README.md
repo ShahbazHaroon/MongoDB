@@ -7,12 +7,12 @@ Hands on with MongoDB
 <li>C:\Program Files\MongoDB\Server\4.2</li>
 </br>
 
-<p>Create two folders (if its not already there), names as:</p>
+<p>Create two folders (if its not already there), named as:</p>
 <li>data</li>
 <li>log</li>
 </br>
 
-<p>Inside data folder, create another folder names as:</p>
+<p>Inside data folder, create another folder named as:</p>
 <li>db</li>
 </br>
 
