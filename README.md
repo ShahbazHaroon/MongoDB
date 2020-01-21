@@ -40,7 +40,7 @@ Hands on with MongoDB
 </br>
 
 <p>Create New Database:</p>
-<li>use <strong>myuserprofile</strong></li>
+<li>use <strong>myuserprofiles</strong></li>
 </br>
 
 <p>Check Current Database:</p>
@@ -55,58 +55,107 @@ Hands on with MongoDB
 });</pre>
 
 <p>Create Collection:</p>
-<pre>db.createCollection('userprofile');</pre>
+<pre>db.createCollection('userprofiles');</pre>
 
 <p>Show all Collections:</p>
 <li>Type, <strong>show collections</strong></li>
 
 <p>Insert Document:</p>
-<pre>db.userprofile.insert({
+<pre>db.userprofiles.insert({
 	first_name: "Muhammad Ubaid",
 	middle_name: "Ur",
-	last_name: "Raheem"
+	last_name: "Raheem",
+	gender: "Male"
 });</pre>
 
 <p>Show Document:</p>
-<pre>db.userprofile.find();</pre>
+<pre>db.userprofiles.find();</pre>
 
 <p>Add Multiple Documents:</p>
 <pre>db.userprofile.insert({
-	first_name: "Test-1",
-	last_name: "Raheem"
+	first_name: "John",
+	last_name: "Smith"
 },
 {
-	first_name: "Ubaid",
-	last_name: "Raheem"
+	first_name: "David",
+	last_name: "Jones"
 }
 );</pre>
 
-<p></p>
-<pre></pre>
+<p>Add new field on the fly:</p>
+<pre>db.userprofiles.insert({
+	first_name: "Michael",
+	last_name: "Lee"
+},
+{
+	first_name: "Maria",
+	last_name: "Lopez",
+	gender: "Female"
+}
+);</pre>
 
-<p></p>
-<pre></pre>
+<p>Format the display:</p>
+<pre>db.userprofiles.find().pretty();</pre>
 
-<p></p>
-<pre></pre>
+<p>Update DB and add field:</p>
+<strong>//first_name:"Muhammad Ubaid" is a matching criteria</strong>
+<pre>db.userprofiles.update({first_name:"Muhammad Ubaid"}, {first_name:"Muhammad Ubaid", last_name:"Raheem", age:35});</pre>
 
-<p></p>
-<pre></pre>
+<p>SET Operator:</p>
+<strong>Update DB and add field Using SET operator:</strong>
+<pre>db.userprofiles.update({first_name:"Michael"}, {$set:{gender:"Male"}});</pre>
 
-<p></p>
-<pre></pre>
+<p>INC Operator:</p>
+<strong>First update the existing record:</strong>
+<pre>db.userprofiles.update({first_name:"David"}, {$set:{age:35}});</pre>
 
-<p></p>
-<pre></pre>
+<strong>Increment existing age with 5</strong>
+<pre>db.userprofiles.update({first_name:"Ubaid"}, {$inc:{age:5}});</pre>
 
-<p></p>
-<pre></pre>
+<p>Update DB and remove field Using UNSET Operator:</p>
+<pre>db.userprofiles.update({first_name:"Muhammad Ubaid"}, {$unset:{age:1}});</pre>
 
-<p></p>
-<pre></pre>
+<p>UPSERT Operator:</p>
+<strong>Trying to Update the record which is not exist:</strong>
+<pre>db.userprofiles.update({first_name:"Sarah"}, {first_name:"Sarah", last_name:"James"});</pre>
 
-<p></p>
-<pre></pre>
+<p>No records updated since there is no record available with matching criteria:</p>
+<pre>db.userprofiles.update({first_name:"Sarah"}, {first_name:"Sarah", last_name:"James"}, {upsert: true});</pre>
+<p>Record Inserted/Upserted</p>
+
+<p>Rename Operator:</p>
+<pre>db.userprofiles.update({first_name:"Michael"}, {$rename:{"gender":"sex"}});</pre>
+<p>GENDER field has been renamed to SEX for the record matched as Michael</p>
+
+<p>Remove Docuements:</p>
+<pre>db.userprofiles.remove({first_name:"John"});</pre>
+
+<p>Find by First Name:</p>
+<pre>db.userprofiles.find({first_name: "Maria"});</pre>
+
+<p>OR Operator:</p>
+<pre>db.userprofiles.find({$or:[{first_name: "Muhammad Ubaid"}, {first_name: "Michael"}]});</pre>
+
+<p>Find by Other fields:</p>
+<pre>db.userprofiles.find({gender: "Male"});</pre>
+
+<p><strong><</strong> Operator (<strong>use lt</strong>):</p>
+<pre>db.userprofiles.find({age:{$lt:40}}).pretty();</pre>
+
+<p><strong>></strong> Operator (<strong>ust gt</strong>):</p>
+<pre>db.userprofiles.find({age:{$gt:40}}).pretty();</pre>
+
+<p><strong><=</strong> Operator (<strong>use lte</strong>):</p>
+<pre>db.userprofiles.find({age:{$lte:40}}).pretty();</pre>
+
+<p><strong>>=</strong> Operator (<strong>use gte</strong>):</p>
+<pre>db.userprofiles.find({age:{$gte:40}}).pretty();</pre>
+
+<p>Query in Object:</p>
+<pre>db.userprofiles.find({"address.city":"Karachi"}).pretty();</pre>
+
+<p>Query in Array:</p>
+<pre>db.userprofiles.find({memberships: "mem1"}).pretty();</pre>
 
 <p></p>
 <pre></pre>
