@@ -53,3 +53,69 @@ Hands on with MongoDB
 	pwd: "root",
 	roles: ["readWrite", "dbAdmin"]
 });</pre>
+
+<p>Create Collection:</p>
+<pre>db.createCollection('userprofile');</pre>
+
+<p>Show all Collections:</p>
+<li>Type, <strong>show collections</strong></li>
+
+<p>Insert Document:</p>
+<pre>db.userprofile.insert({
+	first_name: "Muhammad Ubaid",
+	middle_name: "Ur",
+	last_name: "Raheem"
+});</pre>
+
+<p>Show Document:</p>
+<pre>db.userprofile.find();</pre>
+
+<p>Add Multiple Documents:</p>
+<pre>db.userprofile.insert({
+	first_name: "Test-1",
+	last_name: "Raheem"
+},
+{
+	first_name: "Ubaid",
+	last_name: "Raheem"
+}
+);</pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
+
+<p></p>
+<pre></pre>
