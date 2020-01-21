@@ -177,3 +177,23 @@ Hands on with MongoDB
 
 <p>For Each Loop:</p>
 <pre>db.customers.find().forEach(function(doc){print("Customer Name: " + doc.first_name)});</pre>
+
+<p>Insert String, Object and Array Data:</p>
+<pre>db.customers.insert([
+			{
+				<strong>// String</strong>
+				first_name: "Mike",
+				last_name: "Jones",
+				gender: "",
+				age: 35,
+				<strong>// Object</strong>
+				address: {
+						street: "",
+						city: "",
+						state: ""
+				},				
+				<strong>Array</strong>
+				memberships: ["mem1", "mem2"],
+				balance: 125.32,
+			}
+]);</pre>
