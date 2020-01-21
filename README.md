@@ -142,7 +142,7 @@ Hands on with MongoDB
 <p><strong><</strong> Operator (<strong>use lt</strong>):</p>
 <pre>db.userprofiles.find({age:{$lt:40}}).pretty();</pre>
 
-<p><strong>></strong> Operator (<strong>ust gt</strong>):</p>
+<p><strong>></strong> Operator (<strong>use gt</strong>):</p>
 <pre>db.userprofiles.find({age:{$gt:40}}).pretty();</pre>
 
 <p><strong><=</strong> Operator (<strong>use lte</strong>):</p>
@@ -157,14 +157,23 @@ Hands on with MongoDB
 <p>Query in Array:</p>
 <pre>db.userprofiles.find({memberships: "mem1"}).pretty();</pre>
 
-<p></p>
-<pre></pre>
+<p>Soring:</p>
+<p>Sort by Last Name</p>
+<p><strong>1 is used for ASC</strong></p>
+<p><strong>-1 is used for DESC</strong></p>
+<pre>db.userprofiles.find().sort({last_name: 1}); // 1 is used for ASC</pre>
 
-<p></p>
-<pre></pre>
+<p>Count All Documents:</p>
+<pre>db.userprofiles.find().count();</pre>
 
-<p></p>
-<pre></pre>
+<p>Count Documents by Query Parameter:</p>
+<pre>db.userprofiles.find({gender: "Male"}).count();</pre>
 
-<p></p>
-<pre></pre>
+<p>Limit:</p>
+<pre>db.userprofiles.find().limit(4);</pre>
+
+<p>Limit with Sort:</p>
+<pre>db.userprofiles.find().limit(4).sort({last_name: 1});</pre>
+
+<p>For Each Loop:</p>
+<pre>db.customers.find().forEach(function(doc){print("Customer Name: " + doc.first_name)});</pre>
