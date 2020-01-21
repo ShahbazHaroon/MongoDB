@@ -5,6 +5,7 @@ Hands on with MongoDB
 
 <p>Mongo Installation directory, like:</p>
 <li>C:\Program Files\MongoDB\Server\4.2</li>
+</br>
 
 <p>Create two folders (if its not already there), names as:</p>
 <li>data</li>
