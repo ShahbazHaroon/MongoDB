@@ -24,7 +24,7 @@ Hands on with MongoDB
 <li>cd bin</li>
 </br>
 
-<p>Type: <strong>mongod --directoryperdb --dbpath C:\Program Files\MongoDB\Server\4.2\data\db --logpath C:\Program Files\MongoDB\Server\4.2\log\mongo.log --logappend --rest --install</strong></p>
+<p>Type: <strong>mongod --directoryperdb --dbpath C:\MongoDB\Server\4.2\data\db --logpath C:\MongoDB\Server\4.2\log\mongo.log --logappend --rest --install</strong></p>
 </br>
 
 <p>Start Mongo Service:</p>
