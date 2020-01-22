@@ -58,7 +58,8 @@ Hands on with MongoDB
 <pre>db.createCollection('userprofiles');</pre>
 
 <p>Show all Collections:</p>
-<li>Type, <strong>show collections</strong></li>
+<li>Type, <strong>show collections;</strong></li>
+</br>
 
 <p>Insert Document:</p>
 <pre>db.userprofiles.insert({
