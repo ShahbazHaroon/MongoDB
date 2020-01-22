@@ -176,10 +176,10 @@ Hands on with MongoDB
 <pre>db.userprofiles.find().limit(4).sort({last_name: 1});</pre>
 
 <p>For Each Loop:</p>
-<pre>db.customers.find().forEach(function(doc){print("Customer Name: " + doc.first_name)});</pre>
+<pre>db.userprofiles.find().forEach(function(doc){print("Customer Name: " + doc.first_name)});</pre>
 
 <p>Insert String, Object and Array Data:</p>
-<pre>db.customers.insert([
+<pre>db.userprofiles.insert([
 			{
 				<strong>// String</strong>
 				first_name: "Mike",
