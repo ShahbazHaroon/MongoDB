@@ -198,3 +198,24 @@ Hands on with MongoDB
 				balance: 125.32,
 			}
 ]);</pre>
+
+<p>Connect to a <strong>Mongod</strong> instance using encryption, start instance like:</p>
+<pre>mongo --ssl --host example.com --sslCAFile /etc/ssl/ca.pem</pre>
+<li>--ssl enables the TLS/SSL connection
+<li>--sslCAFile specifies the certificate authority (CA) pem file for verification of the certificate presented by the mongod or the mongos. The Mongo shell will therefore verify the certificate issued by the mongod instance against the specified CA file and the hostname
+
+<p>Connect MongoDB instance that requires a client certificate:</p>
+<pre>mongo --ssl --host hostname.example.com --sslPEMKeyFile /etc/ssl/client.pem --sslCAFile /etc/ssl/ca.pem</pre>
+<li>--sslPEMKeyFile specifies the .pem file that contains the mongo shell certificate and a key to present to the mongod or mongos instance. During the connection process
+
+<p>The mongo shell will verify if the certificate is from the specified Certificate Authority that is the (--sslCAFile) and if not, the shell will fail to connect.
+
+Secondly, the shell will also verify if the hostname specified in the --host option matches the SAN/CN in the certificate presented by the mongod or mongos. If this hostname does not match either of the two, then the connection will fail.</p>
+
+<p>Additional options that can be used in the connections are:</p>
+<li>requireSSL: this will restrict each server to use only TLS/SSL encrypted connections
+<li>--sslAllowConnectionsWithoutCertificates: This allows validation if only the client presents a certificate otherwise if there is no certificate, the client will still be connected in an encrypted mode
+<pre>mongod --sslMode requireSSL --sslAllowConnectionsWithoutCertificates --sslPEMKeyFile /etc/ssl/mongodb.pem --sslCAFile /etc/ssl/ca.pem</pre>
+	
+<li>sslDisabledProtocols: this option prevents servers from accepting incoming connections that use specific protocols
+<pre>mongod --sslMode requireSSL --sslDisabledProtocols TLS1_0,TLS1_1 --sslPEMKeyFile /etc/ssl/mongodb.pem --sslCAFile /etc/ssl/ca.pem</pre>
